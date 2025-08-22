@@ -19,8 +19,11 @@ def termo_sequencia(posicao: int) -> int:
 
 def main():
     try:
-        n = int(input("Digite a posição desejada: "))
-        print(f"O valor na posição {n} é {termo_sequencia(n)}")
+        entrada = input("Digite a posição desejada (número >= 1): ")
+        posicao = round(float(entrada))  # converte para float e arredonda
+
+        valor = termo_sequencia(posicao)
+        print(f"O valor na posição {posicao} é {valor}")
         
     except ValueError:
          print("❌ Entrada inválida! Digite apenas um número inteiro maior ou igual a 1.")
