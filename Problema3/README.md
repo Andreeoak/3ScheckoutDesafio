@@ -58,8 +58,11 @@ flowchart TD
 ```
 
 **Observação teórica (fórmula fechada):**
-O menor número de turnos $t$ é o menor inteiro tal que existe uma soma $s$ de $t$ passos (cada um entre 1 e 3) com $s \equiv -1 \pmod n$. Tomando $s = n-1$ (sem loop), precisamos de $t$ com $t \le s \le 3t$. Logo,
-$\boxed{\;\textbf{min\_turns}(n) = \left\lceil\dfrac{n-1}{3}\right\rceil\;}$
+
+O menor número de turnos $t$ é o menor inteiro tal que existe uma soma $s$ de $t$ passos (cada um entre 1 e 3) com $s \equiv -1 \pmod n$. Tomando $s = n-1$ (sem loop), precisamos de $t$ com $t \le s \le 3t$.  
+
+min_turns(n) = ⌈(n - 1) / 3⌉
+
 Essa fórmula bate com o BFS e é útil para conferir resultados.
 
 **Exemplos rápidos**:
@@ -112,7 +115,7 @@ Essa fórmula bate com o BFS e é útil para conferir resultados.
 
 ### 2) Probabilidade do caminho ótimo (DP por camadas)
 
-Defina $T=\text{min\_turns}(n)$. Cada sequência de $T$ sorteios tem probabilidade $(1/3)^T$. Queremos a **fração** das sequências que chegam exatamente a `n-1` em $T$ turnos.
+Defina $T=\text{minTurns}(n)$. Cada sequência de $T$ sorteios tem probabilidade $(1/3)^T$. Queremos a **fração** das sequências que chegam exatamente a `n-1` em $T$ turnos.
 
 **DP usada**:
 
@@ -216,7 +219,7 @@ Outros exemplos (comparativo):
 
 * `min_turns_tabuleiro(n)`: BFS até `n-1` (equivale a $\lceil (n-1)/3 \rceil$).
 * `count_optimal_paths(n)`: DP em camadas até `T`, conta quantas sequências chegam ao alvo **em exatamente** `T` turnos.
-* `prob_caminho_otimo(n)`: $\text{count\_optimal\_paths}(n) / 3^T$.
+* `prob_caminho_otimo(n)`: $\text{countOptimalPaths}(n) / 3^T$.
 * `count_no_loop_paths(n)`: DP linear (Tribonacci) sem usar o módulo (não permite ultrapassar `n-1`).
 * `main()`: orquestra as chamadas, valida entradas e imprime resultados.
 
